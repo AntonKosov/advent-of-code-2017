@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${file}",
+            "program": "${fileDirname}",
             "args": [
                 "${fileDirname}/example.txt"
             ]
@@ -19,7 +19,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${file}",
+            "program": "${fileDirname}",
             "args": [
                 "${fileDirname}/input.txt"
             ]
