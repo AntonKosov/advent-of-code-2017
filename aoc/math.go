@@ -9,8 +9,8 @@ type Number interface {
 }
 
 func Abs[T Number](a T) T {
-	if a > 0 {
-		return a
+	if a < 0 {
+		return -a
 	}
 
 	return a

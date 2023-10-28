@@ -1,0 +1,4 @@
+ne,ne,s,s
+ne,ne,sw,sw
+se,sw,se,sw,sw
+ne,ne,ne
