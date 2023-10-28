@@ -18,42 +18,40 @@ func main() {
 	fmt.Printf("Answer: %v\n", answer)
 }
 
-func read() []byte {
+func read() []int {
 	line := aoc.ReadAllInput()[0]
 	parts := strings.Split(line, ",")
-	nums := make([]byte, len(parts))
+	nums := make([]int, len(parts))
 	for i, num := range parts {
-		nums[i] = byte(aoc.StrToInt(num))
+		nums[i] = aoc.StrToInt(num)
 	}
 
 	return nums
 }
 
-func process(sequence []byte) int {
+func process(sequence []int) int {
 	data := initialData()
-	var position byte
-	var skipSize byte
-	for _, length := range sequence {
+	position := 0
+	for skipSize, length := range sequence {
 		reverse(data, position, length)
-		position += length + skipSize
-		skipSize++
+		position = (position + length + skipSize) % len(data)
 	}
 
-	return int(data[0]) * int(data[1])
+	return data[0] * data[1]
 }
 
-func initialData() []byte {
-	data := make([]byte, elements)
+func initialData() []int {
+	data := make([]int, elements)
 	for i := range data {
-		data[i] = byte(i)
+		data[i] = i
 	}
 
 	return data
 }
 
-func reverse(data []byte, start, length byte) {
-	for i := byte(0); i < length/2; i++ {
-		idx1, idx2 := start+i, start+length-1-i
+func reverse(data []int, start, length int) {
+	for i := 0; i < length/2; i++ {
+		idx1, idx2 := (start+i)%len(data), (start+length-1-i)%len(data)
 		data[idx1], data[idx2] = data[idx2], data[idx1]
 	}
 }
