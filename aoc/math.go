@@ -1,7 +1,7 @@
 package aoc
 
 type IntNumber interface {
-	int
+	~int | ~int64
 }
 
 type Number interface {
