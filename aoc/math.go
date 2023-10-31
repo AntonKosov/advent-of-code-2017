@@ -15,3 +15,7 @@ func Abs[T Number](a T) T {
 
 	return a
 }
+
+func Mod[T IntNumber](a, b T) T {
+	return (a%b + b) % b
+}
