@@ -13,7 +13,7 @@ func StrToInt(str string) int {
 }
 
 func StrToInts(str string) []int {
-	r := regexp.MustCompile(`[\d]+`)
+	r := regexp.MustCompile(`-?[\d]+`)
 	matches := r.FindAllString(str, -1)
 
 	res := make([]int, len(matches))
